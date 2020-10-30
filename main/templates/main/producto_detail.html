@@ -15,9 +15,20 @@
       <li><strong>Proveedor:</strong> {{ object.proveedor }}</li>
     </ul>
     <hr>
+    <div class="block">
+    <a href="{% url 'add-to-cart' product_pk=object.pk %}" class='button is-primary'>
+      Añadir al carrito
+    </a>
+    <a href="{% url 'pedido-detail' %}" class='button'>
+      Ver carrito
+    </a>
+    </div>
     <ul>
       <li><a href="{% url 'product-list' %}">Ver Lista de Productos</a></li>
       <li><a href="{% url 'home' %}">Inicio</a></li>
     </ul>
   </body>
 </html>
+
+
+
