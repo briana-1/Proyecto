@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import django_heroku
+django_heroku.settings(locals())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -126,5 +130,13 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '68e13dc07725e8'
 EMAIL_HOST_PASSWORD = '32ed7a22bd1378'
 EMAIL_PORT = '2525'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = 'sl.AlfCf88vLZHTYV_APGmq1yD3yB__0U2UNgsk57qeKc0h9ti4VUJNz3gVl-MKsWPgPPFNzngeUqwv3Mps-YINAK-nEpV1LceyzIAXxj_9k_6PqTaZcca5lnzbGJger558O6QKiRU'
+
+
 
 
